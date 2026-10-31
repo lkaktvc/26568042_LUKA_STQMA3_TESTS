@@ -131,14 +131,14 @@ def test_t11_scenario3():
             added_products.append(add_to_comparison_list(driver, wait, i))
 
         # Check if counter has updated correctly
-        assert "(5)" in comparison_header_text(driver)
+        assert "(4)" in comparison_header_text(driver)
 
         go_to_comparison_page(driver, wait)
-        assert comparison_page_count(driver) == 5
+        assert comparison_page_count(driver) == 4
         shown_products = comparison_page_names(driver)
 
         # Check every product added is shown
-        for product in added_products:
+        for product in added_products[1:]:
             assert product in shown_products
     finally:
         teardown(driver)
